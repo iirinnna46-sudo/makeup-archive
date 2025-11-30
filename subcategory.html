@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Subcategory Products</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1 id="subcat-title">Products</h1>
+    <a href="index.html">Back</a> | <a href="profile.html">Profile</a>
+  </header>
+
+  <div id="subcat-product-list"></div>
+
+  <!-- Product Modal (reuse from index) -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProductModal()">&times;</span>
+      <img id="modal-img" src="">
+      <h2 id="modal-name"></h2>
+      <p id="modal-brand"></p>
+      <p id="modal-category"></p>
+      <p id="modal-price"></p>
+      <p id="modal-desc"></p>
+      <button id="modal-fav">Add to Favorites</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const subcatListEl = document.getElementById("subcat-product-list");
+    const subcatTitleEl = document.getElementById("subcat-title");
+
+    // Get selected subcategory from localStorage
+    const selected = JSON.parse(localStorage.getItem("selectedSubcategory"));
+    if(!selected){ window.location.href="index.html"; }
+
+    subcatTitleEl.innerText = `${selected.category} - ${selected.subcategory}`;
+
+    // Filter products for this subcategory
+    const subcatProducts = products.filter(p=>p.category===selected.category && p.subcategory===selected.subcategory);
+
+    // Display products
+    if(subcatProducts.length === 0){
+      subcatListEl.innerHTML = "<p>No products found for this subcategory.</p>";
+    } else {
+      subcatProducts.forEach(p=>{
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.brand} | ${p.category}</p>
+          <p>${p.price}</p>
+          <button onclick="addFavorite('${p.name}')">Add to Favorites</button>
+          <button onclick="openProductModal('${p.name}')">View</button>
+        `;
+        subcatListEl.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

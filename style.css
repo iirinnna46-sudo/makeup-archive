@@ -1,0 +1,223 @@
+/* --- GENERAL --- */
+body {margin:0; font-family: Arial,sans-serif; background:#ffeef6; color:#333;}
+header {display:flex; align-items:center; justify-content:space-between; padding:10px 20px; background:#ffccde;}
+header h1 {margin:0; font-size:1.8rem; color:#e91e63;}
+header nav a {margin-left:10px; text-decoration:none; color:#e91e63; font-weight:bold;}
+#search {padding:8px; border-radius:8px; border:1px solid pink; width:200px;}
+
+/* --- LAYOUT --- */
+.container {display:flex;}
+.sidebar {width:200px; padding:20px; background:#f8cde1; height:calc(100vh - 60px); position:sticky; top:0; box-sizing:border-box;}
+.main-content {flex:1; padding:20px;}
+
+/* --- SIDEBAR --- */
+.sidebar h3{margin-bottom:8px;}
+.sidebar ul {list-style:none; padding-left:0; margin-bottom:15px;}
+.sidebar ul li {cursor:pointer; padding:4px 0; color:#e91e63;}
+.sidebar ul li:hover {font-weight:bold;}
+.sidebar input {width:80%; margin-bottom:10px; padding:5px; border-radius:6px; border:1px solid pink;}
+.sidebar button {background:pink; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; margin-bottom:10px;}
+
+/* --- DROPDOWN --- */
+.dropdown-btn {width:100%; padding:8px; border:none; border-radius:6px; background:pink; color:white; cursor:pointer; margin-bottom:5px;}
+.dropdown-content {display:none; background:#f7cbe3; border-radius:6px; padding-left:10px;}
+.dropdown-content p {cursor:pointer; padding:5px 0;}
+.dropdown-content p:hover {color:hotpink; font-weight:bold;}
+
+/* --- PRODUCT GRID --- */
+#product-list {display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:20px;}
+.card {background:#fff; border-radius:12px; padding:10px; box-shadow:0 0 10px #f7cbe3; text-align:center;}
+.card img {width:100%; border-radius:10px;}
+.card button {background:pink; border:none; padding:6px 12px; border-radius:8px; cursor:pointer; margin-top:5px;}
+
+/* --- MODAL --- */
+.modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;}
+.modal-content {background:#fff; padding:20px; border-radius:12px; width:300px; position:relative; text-align:center;}
+.modal-content img {width:100%; border-radius:10px;}
+.modal-content .close {position:absolute; top:10px; right:15px; font-size:20px; cursor:pointer; color:#e91e63;}
+#modal-fav {background:pink; border:none; padding:6px 12px; border-radius:8px; cursor:pointer; margin-top:10px;}
+
+/* --- RESPONSIVE --- */
+@media(max-width:768px){.container{flex-direction:column;}.sidebar{width:100%; height:auto; position:relative;}}
+.profile-container input, .profile-container textarea {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid pink;
+}
+
+.profile-container textarea {
+  height: 60px;
+  resize: none;
+}
+.profile-container button {
+  background: pink;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.profile-container input, .profile-container textarea {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid pink;
+}
+
+.profile-container textarea {
+  height: 60px;
+  resize: none;
+}
+.profile-container button {
+  background: pink;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.profile-header {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: #f8cde1;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.edit-profile-form input {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid pink;
+}
+
+.edit-profile-form button {
+  background: pink;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #f8cde1;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  border-bottom: 2px solid hotpink;
+}
+
+.tab-content {
+  padding: 10px 0;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  position: relative;
+  animation: slideDown 0.4s;
+}
+
+.modal-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-product-list .card {
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 5px #f7cbe3;
+}
+
+.modal-product-list .card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+
+
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:100; }
+.modal-content { background:#fff; margin:50px auto; padding:20px; border-radius:12px; max-width:400px; position:relative; }
+.close-btn { position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; }
+.modal-subcategories { margin-top:15px; }
+.subcat-btn { background: hotpink; color:#fff; border:none; padding:6px 10px; margin:5px 5px 0 0; border-radius:6px; cursor:pointer; }
+.subcat-btn:hover { background: deeppink; }

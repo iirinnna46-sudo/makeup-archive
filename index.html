@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MakeupArchive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>MakeupArchive</h1>
+  <input type="text" id="search" placeholder="Search makeup...">
+  <nav>
+    <a href="login.html">Login</a> | 
+    <a href="signup.html">Sign Up</a> | 
+    <a href="profile.html">Profile</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+   <h3>Category</h3>
+<button class="dropdown-btn" onclick="toggleDropdown()">Select Category ▼</button>
+<div id="dropdown" class="dropdown-content">
+  <p onclick="openCategoryModal('Lipstick')">Lipstick</p>
+  <p onclick="openCategoryModal('Eyeshadow')">Eyeshadow</p>
+  <p onclick="openCategoryModal('Blush')">Blush</p>
+  <p onclick="openCategoryModal('Foundation')">Foundation</p>
+</div>
+
+
+
+<!-- Category Modal -->
+<div id="categoryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-category-name">Category</h2>
+    <div id="modal-product-list" class="modal-product-list"></div>
+  </div>
+</div>
+
+    <h3>Brands</h3>
+    <ul>
+      <li onclick="filterBrand('All')">All</li>
+      <li onclick="filterBrand('Fenty')">Fenty</li>
+      <li onclick="filterBrand('Rare Beauty')">Rare Beauty</li>
+      <li onclick="filterBrand('Dior')">Dior</li>
+    </ul>
+
+    <h3>Price</h3>
+    <input type="number" id="minPrice" placeholder="Min $">
+    <input type="number" id="maxPrice" placeholder="Max $">
+    <button onclick="filterPrice()">Apply</button>
+  </aside>
+
+  <!-- MAIN PRODUCT GRID -->
+  <main class="main-content">
+    <div id="product-list"></div>
+  </main>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h3 id="modal-name"></h3>
+    <p><strong>Brand:</strong> <span id="modal-brand"></span></p>
+    <p><strong>Category:</strong> <span id="modal-category"></span></p>
+    <p><strong>Price:</strong> <span id="modal-price"></span></p>
+    <p id="modal-desc"></p>
+    <button id="modal-fav">❤️ Add to Favorites</button>
+  </div>
+</div>
+
+    <div id="modal-product-list" class="modal-product-list"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+<div id="categoryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-category-name">Category</h2>
+     <!-- Subcategories -->
+    <div id="modal-subcategories" class="modal-subcategories"></div>
+
+    <!-- Preview products -->
+    <div id="modal-product-preview" class="modal-product-list"></div>
+  </div>
+</div>
+
+</html>
